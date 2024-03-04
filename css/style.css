@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url(../img/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  position: absolute;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 50px #ffffff;
+  color: #000000;
+}
+
+.container .title {
+  margin: 20px auto;
+  align-items: center;
+  text-align: center;
+}
+
+.container .srch {
+  border-radius: 6px;
+  margin: 6% 10%;
+  width: 80%;
+  border: 2px solid transparent;
+  height: 5vh;
+}
+
+.container .srch input {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 1px 10px;
+  font-size: 1.3rem;
+  height: 100%;
+}
+
+.container .srch input:hover {
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.container .qr-code {
+  margin: 3% 30% 3% 30%;
+  scale: 1;
+  max-height: 500px;
+}
+
+.container .qr-code img {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.container .btn {
+  margin: 8% 10%;
+  width: 80%;
+}
+
+.container .btn button {
+  width: 100%;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #0e7a1d;
+  height: 5vh;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.container .btn button:hover {
+  box-shadow: 0 0 30px #ffffff;
+  color: #000000;
+  background: #00c51a;
+  font-size: 22px;
+}
