@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap");
 
 * {
   margin: 0;
@@ -8,84 +8,92 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-image: url(../img/background.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f0f5fc;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .container {
-  width: 100%;
-  max-width: 450px;
-  position: absolute;
-  height: auto;
-  top: 50%;
-  left: 50%;
+  width: 90%;
+  max-width: 600px;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 50px #ffffff;
-  color: #000000;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .container .title {
-  margin: 20px auto;
-  align-items: center;
   text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #336699;
 }
 
 .container .srch {
-  border-radius: 6px;
-  margin: 6% 10%;
-  width: 80%;
-  border: 2px solid transparent;
-  height: 5vh;
+  margin-bottom: 30px;
 }
 
 .container .srch input {
-  border-radius: 10px;
   width: 100%;
-  border: none;
-  outline: none;
-  padding: 1px 10px;
-  font-size: 1.3rem;
-  height: 100%;
+  border-radius: 30px;
+  border: 2px solid #99bbff;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-.container .srch input:hover {
-  box-shadow: 0 0 10px #ffffff;
+.container .srch input:focus {
+  border-color: #6699cc;
 }
 
 .container .qr-code {
-  margin: 3% 30% 3% 30%;
-  scale: 1;
-  max-height: 500px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .container .qr-code img {
-  padding: 20px;
+  max-width: 100%;
   border-radius: 10px;
-  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.container .qr-code img:hover {
+  transform: scale(1.05);
 }
 
 .container .btn {
-  margin: 8% 10%;
-  width: 80%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .container .btn button {
-  width: 100%;
+  width: calc(50% - 10px);
+  margin-right: 7px;
+  padding: 15px 0;
+  border-radius: 30px;
+  background-color: #336699;
   color: #fff;
-  border-radius: 5px;
-  background-color: #0e7a1d;
-  height: 5vh;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.container .btn button:last-child {
+  margin-right: 0;
 }
 
 .container .btn button:hover {
-  box-shadow: 0 0 30px #ffffff;
-  color: #000000;
-  background: #00c51a;
-  font-size: 22px;
+  background-color: #6699cc;
+  transform: translateY(-3px);
 }
