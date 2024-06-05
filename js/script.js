@@ -9,35 +9,42 @@ function clearInput() {
   qrContainer.innerHTML = "";
 }
 
-function showToast(message) {
+function showToast(message, backgroundColor) {
   Toastify({
     text: message,
     duration: 3000,
     gravity: "top",
-    position: "center",
+    position: "right",
     style: {
-      background: "#fff",
-      color: "#000",
-      borderBottom: "4px solid #336699",
+      background: backgroundColor,
+      color: "black",
+      borderRadius: "10px",
+      padding: "10px"
     },
     stopOnFocus: true,
   }).showToast();
 }
 
 function shareQRCode() {
-  if (!navigator.share) {
-    showToast("Compartilhamento não suportado neste navegador.");
+  const qrCodeImg = qrContainer.querySelector("img");
+  if (!qrCodeImg) {
+    showToast("Por favor, gere um QR Code primeiro.", "#f44336");
     return;
   }
 
-  const qrCodeDataURL = qrContainer.querySelector("img").src;
+  if (!navigator.share) {
+    showToast("Compartilhamento não suportado neste navegador.", "#f44336");
+    return;
+  }
+
+  const qrCodeDataURL = qrCodeImg.src;
   navigator.share({
     title: "QR Code",
     text: "Veja este QR Code",
     url: qrCodeDataURL,
   })
-  .then(() => showToast("QR Code compartilhado com sucesso!"))
-  .catch(() => showToast("Erro ao compartilhar o QR Code."));
+  .then(() => showToast("QR Code compartilhado com sucesso!", "green"))
+  .catch(() => showToast("Erro ao compartilhar o QR Code.", "#f44336"));
 }
 
 function qrCodeGenerator() {
@@ -46,13 +53,14 @@ function qrCodeGenerator() {
       qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${searchText.value}" alt="QR Code"/>`;
       lastInputValue = searchText.value;
       setTimeout(function () {
-        showToast("QR Code gerado com sucesso!");
+        showToast("QR Code gerado com sucesso!", "green");
       });
     } else {
-      showToast("Você já gerou um QR Code com esses dados.");
+      showToast("Você já gerou um QR Code com esses dados.", "#ecd032");
     }
   } else {
     qrContainer.innerHTML = "<p>Por favor, digite algo!</p>";
+    showToast("Por favor, digite algo!", "#f44336");
   }
 }
 
